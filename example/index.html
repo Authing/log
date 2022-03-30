@@ -1,0 +1,46 @@
+<html>
+  <head></head>
+  <body>
+    <script src="../build/umd/index.min.js"></script>
+
+    <button data-log="console/m1/m2">自动触发</button>
+    <button data-log="console/m1/m2?alive=火山">自动触发火山</button>
+    <button id="l1">手动触发</button>
+    <script>
+      // 火山
+      const report1 = (m) => {
+        let body = {
+          s: m.site,
+          p: m.page,
+          b: m.block,
+          e: m.element,
+          uid: m.uid,
+          upid: m.upid,
+        }
+        // reportEvents(m.name, body)
+        console.log('report 1 发送成功', m)
+      }
+
+      // 后端
+      const report2 = (m) => {
+        console.log('report2 触发')
+      }
+
+      const callbacks = {
+        火山: report1,
+        后端: report2,
+      }
+      const config = {
+        defaultSite: 'c',
+        defaultPage: 'i',
+        defaultBlock: 'f',
+        defaultElement: 'l',
+      }
+      const gsgl = AuthingLog.registerLogTrack(callbacks, config)
+
+      document.querySelector('#l1').addEventListener('click', () => {
+        gsgl.bury('console/m3/m4')
+      })
+    </script>
+  </body>
+</html>

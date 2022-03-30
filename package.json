@@ -1,0 +1,35 @@
+{
+  "name": "@authing/log",
+  "version": "0.0.1",
+  "description": "",
+  "main": "build/umd",
+  "typings": "build/types",
+  "module": "build/module",
+  "scripts": {
+    "test": "jest",
+    "build:umd": "webpack",
+    "build:module": "tsc -p tsconfig.module.json",
+    "build": "yarn clean && yarn build:umd && yarn build:module",
+    "clean": "rm -rf build",
+    "publish-alpha": "npm publish --tag alpha",
+    "oss": "node scripts/oss.js",
+    "release": "node scripts/release.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-arrow-functions": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/jest": "^27.0.3",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-add-module-exports": "1.0.4",
+    "core-js": "3",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.3"
+  }
+}
