@@ -1,6 +1,6 @@
 {
   "name": "@authing/log",
-  "version": "0.0.4",
+  "version": "0.0.3",
   "description": "Authing Log",
   "main": "build/umd",
   "typings": "build/types",
@@ -10,8 +10,7 @@
     "build:module": "tsc -p tsconfig.module.json",
     "build": "yarn clean && yarn build:umd && yarn build:module",
     "clean": "rm -rf build",
-    "oss": "node scripts/oss.js",
-    "release": "node scripts/release.js"
+    "oss": "node scripts/oss.js"
   },
   "files": [
     "build"
