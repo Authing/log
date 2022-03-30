@@ -4,15 +4,15 @@
 ## 引入项目
 ```
 # use npm
-npm install authing-log
+npm install @authing/log
 
 # use yarn
-yarn add authing-log
+yarn add @authing/log
 ```
 
 ## 初始化
 ```javascript
-import AuthingLog from 'authing-log'
+import AuthingLog from '@authing/log'
 
 const authingLog = AuthingLog.registerLogTrack({
   reportFunc: (m) => {
@@ -112,4 +112,3 @@ const authingLog = AuthingLog.registerLogTrack(callbacks, config)
 ```
 
 调用 `registerLogTrack` 时，传入的 `report` 函数里会带一个参数，这个参数表示了埋点时的信息，格式如下：
-
