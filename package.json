@@ -44,5 +44,9 @@
   },
   "bugs": {
     "url": "https://github.com/authing/log/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
