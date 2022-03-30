@@ -53,7 +53,7 @@ jobs:
       - name: upload oss
         if: ${{ github.ref_name == 'main' }}
         run: |
-          npm run oss --accessKeyId $OSS_KEY_ID --accessKeySecret $OSS_KEY_SECRET
+          yarn oss --accessKeyId $OSS_KEY_ID --accessKeySecret $OSS_KEY_SECRET
         env:
           OSS_KEY_ID: ${{ secrets.OSS_KEY_ID }}
           OSS_KEY_SECRET: ${{ secrets.OSS_KEY_SECRET }}
