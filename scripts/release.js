@@ -15,7 +15,7 @@ function readyGo () {
 
   updateVersion(targetVersion)
 
-  const { stdout } = run('git', ['diff', '--cached'], { stdio: 'pipe' })
+  const { stdout } = run('git', ['diff'], { stdio: 'pipe' })
 
   if (stdout) {
     step('\nCommitting changes...')
