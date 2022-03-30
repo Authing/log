@@ -1,12 +1,11 @@
 {
   "name": "@authing/log",
   "version": "0.0.1",
-  "description": "",
+  "description": "Authing Log",
   "main": "build/umd",
   "typings": "build/types",
   "module": "build/module",
   "scripts": {
-    "test": "jest",
     "build:umd": "webpack",
     "build:module": "tsc -p tsconfig.module.json",
     "build": "yarn clean && yarn build:umd && yarn build:module",
@@ -15,21 +14,36 @@
     "oss": "node scripts/oss.js",
     "release": "node scripts/release.js"
   },
+  "files": [
+    "build"
+  ],
   "license": "MIT",
+  "author": "https://github.com/authing",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/plugin-transform-arrow-functions": "^7.16.0",
     "@babel/plugin-transform-runtime": "^7.16.4",
-    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.0",
     "@types/jest": "^27.0.3",
+    "ali-oss": "^6.17.1",
     "babel-loader": "^8.2.3",
     "babel-plugin-add-module-exports": "1.0.4",
+    "chalk": "4.1.0",
     "core-js": "3",
+    "execa": "4.0.2",
+    "minimist": "^1.2.6",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/authing/log"
+  },
+  "bugs": {
+    "url": "https://github.com/authing/log/issues"
   }
 }

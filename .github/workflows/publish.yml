@@ -1,0 +1,53 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: publish
+
+on:
+  workflow_dispatch:
+        
+jobs:
+
+  readyGo:
+
+    runs-on: ubuntu-latest
+
+    env: 
+      NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      PUBLISH_OPTS: ${{ github.ref_name == 'main' && '--verbose' || '--verbose --tag=alpha' }}
+      
+    steps:
+
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+          
+      - name: before scripts
+        run: |
+          echo "Current branch: ${{ github.ref_name }}"
+          echo "Current publish version: ${{ steps.version.outputs.value  }}"
+
+      - name: install packages
+        run: |
+          npm install yarn -g
+          yarn
+
+      - name: build
+        run: |
+          yarn build
+
+      - name: publish
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
+          npm publish $PUBLISH_OPTS --access public
+      
+      - name: upload oss
+        if: ${{ github.ref_name == 'main' }}
+        run: |
+          npm run oss accessKeyId=$OSS_KEY_ID accessKeySecret=$OSS_KEY_SECRET
+        env:
+          OSS_KEY_ID: ${{ secrets.OSS_KEY_ID }}
+          OSS_KEY_SECRET: ${{ secrets.OSS_KEY_SECRET }}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
