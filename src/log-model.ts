@@ -28,8 +28,8 @@ const LogModel = class {
     this.element = config?.defaultElement || '-'
 
     // 配置值 > window
-    this.uid = config?.defaultUserId || diyWindow?.__userPoolId__ || '-'
-    this.upid = config?.defaultUserPoolId || diyWindow?.__user__?.id || '-'
+    this.upid = config?.defaultUserPoolId || diyWindow?.__userPoolId__ || '-'
+    this.uid = config?.defaultUserId || diyWindow?.__user__?.id || '-'
 
     this.expansionBlock = {} // 拓展块，未来要兼容其他格式用的
 
