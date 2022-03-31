@@ -16,6 +16,11 @@ const LogModel = class {
   filterPoint: any = {}
 
   constructor(buryCode: string, config?: GSGLConfig) {
+    const diyWindow = {
+      __userPoolId__: '-',
+      __user__: { id: '-' },
+      ...window,
+    }
     // 四段式
     this.site = config?.defaultSite || '-' // todo，可以根据几个域名做字典映射
     this.page = config?.defaultPage || '-'
@@ -23,8 +28,8 @@ const LogModel = class {
     this.element = config?.defaultElement || '-'
 
     // 配置值 > window
-    this.uid = config?.defaultUserId || window?.__userPoolId__ || '-'
-    this.upid = config?.defaultUserPoolId || window?.__user__?.id || '-'
+    this.uid = config?.defaultUserId || diyWindow?.__userPoolId__ || '-'
+    this.upid = config?.defaultUserPoolId || diyWindow?.__user__?.id || '-'
 
     this.expansionBlock = {} // 拓展块，未来要兼容其他格式用的
 
