@@ -47,6 +47,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  },
-  "version": "0.0.8"
+  }
 }
