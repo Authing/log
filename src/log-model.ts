@@ -1,4 +1,4 @@
-import { isWindowExist } from 'src'
+import { isWindowExist } from './'
 import { GSGLConfig } from './types'
 
 const LogModel = class {
