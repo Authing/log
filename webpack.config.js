@@ -10,6 +10,7 @@ module.exports = {
   entry: resolve('./src/index.ts'),
   output: {
     path: resolve('./build/umd'),
+    globalObject: 'this',
     filename: 'index.min.js',
     library: 'AuthingLog',
     libraryTarget: 'umd',
@@ -46,10 +47,7 @@ module.exports = {
               ],
               '@babel/preset-typescript',
             ],
-            plugins: [
-              '@babel/plugin-transform-runtime',
-              '@babel/plugin-transform-arrow-functions',
-            ],
+            plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-transform-arrow-functions'],
           },
         },
       },
