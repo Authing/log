@@ -1,3 +1,4 @@
+import { isWindowExist } from 'src'
 import { GSGLConfig } from './types'
 
 const LogModel = class {
@@ -16,11 +17,14 @@ const LogModel = class {
   filterPoint: any = {}
 
   constructor(buryCode: string, config?: GSGLConfig) {
+    if (isWindowExist()) {
+      return
+    }
     const diyWindow = {
       __userPoolId__: '-',
       __user__: { id: '-' },
       ...window,
-    }
+    }    
     // 四段式
     this.site = config?.defaultSite || '-' // todo，可以根据几个域名做字典映射
     this.page = config?.defaultPage || '-'

@@ -12,7 +12,7 @@ yarn add @authing/log
 
 ## 初始化
 ```javascript
-import AuthingLog from '@authing/log'
+import { AuthingLog } from '@authing/log'
 
 const authingLog = AuthingLog.registerLogTrack({
   reportFunc: (m) => {

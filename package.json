@@ -1,9 +1,10 @@
 {
   "name": "@authing/log",
+  "version": "0.0.10",
   "description": "Authing Log",
-  "main": "build/umd",
-  "typings": "build/types",
-  "module": "build/module",
+  "main": "build/umd/index.min.js",
+  "typings": "build/types/index.d.ts",
+  "module": "build/module/index.js",
   "scripts": {
     "build:umd": "webpack",
     "build:module": "tsc -p tsconfig.module.json",
@@ -47,6 +48,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  },
-  "version": "0.0.9"
+  }
 }

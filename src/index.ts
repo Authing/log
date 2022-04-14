@@ -2,6 +2,15 @@ import LogModel from './log-model'
 import { GSGLConfig } from './types'
 import { doReports, findParent } from './util'
 
+// 判定window对象是否存在，公用函数
+export const isWindowExist = () => {
+  if (typeof window === 'undefined') {
+    console.warn('window 对象不存在，无法获取埋点信息')
+    return false
+  }
+  return true
+}
+
 const GrassSnakesGrayLines = class {
   reportDict: any
   config?: GSGLConfig
@@ -18,6 +27,9 @@ const GrassSnakesGrayLines = class {
 }
 
 export const registerLogTrack = (reportDict, config?: GSGLConfig) => {
+  if (isWindowExist()) {
+    return
+  }
   let gsgl = new GrassSnakesGrayLines(reportDict, config)
   document.addEventListener('click', (e) => {
     if (!(e.target instanceof HTMLElement)) {
