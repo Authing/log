@@ -17,14 +17,14 @@ const LogModel = class {
   filterPoint: any = {}
 
   constructor(buryCode: string, config?: GSGLConfig) {
-    if (isWindowExist()) {
+    if (isWindowExist() === false) {
       return
     }
     const diyWindow = {
       __userPoolId__: '-',
       __user__: { id: '-' },
       ...window,
-    }    
+    }
     // 四段式
     this.site = config?.defaultSite || '-' // todo，可以根据几个域名做字典映射
     this.page = config?.defaultPage || '-'

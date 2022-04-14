@@ -27,7 +27,7 @@ const GrassSnakesGrayLines = class {
 }
 
 export const registerLogTrack = (reportDict, config?: GSGLConfig) => {
-  if (isWindowExist()) {
+  if (isWindowExist() === false) {
     return
   }
   let gsgl = new GrassSnakesGrayLines(reportDict, config)
